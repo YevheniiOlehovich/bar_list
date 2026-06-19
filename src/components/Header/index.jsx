@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import drinks from '../../data/data.json';
+import { menu as drinks } from '../../data/data';
 
 import {
     AppBar,

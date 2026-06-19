@@ -5,7 +5,7 @@ import {
     Box,
 } from '@mui/material';
 
-import drinks from '../../data/data.json';
+import { menu as drinks } from '../../data/data';
 import Card from '../Card';
 
 import { useCategoryStore } from '../../store/useCategoryStore';
