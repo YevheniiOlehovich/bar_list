@@ -10,6 +10,14 @@ import ColaSmallPrimary from "../assets/coca-cole-s/primary.webp";
 import ColaSmallSecondary from "../assets/coca-cole-s/secondary.webp"
 import SpriteSmallPrimary from "../assets/sprite/primary.webp";
 import SpriteSmallSecondary from "../assets/sprite/secondary.webp"
+import BacardiPrimary from "../assets/bacardi/primary.webp"
+import BacardiSecondary from "../assets/bacardi/secondary.webp"
+import OakheartPrimary from "../assets/oakheart/primary.webp"
+import OakheartSecondary from "../assets/oakheart/secondary.webp"
+import BeefaeterPrimary from "../assets/beefeater/primary.webp"
+import BeefaeterSecondary from "../assets/beefeater/secondary.webp"
+import GordonsPrimary from "../assets/gordons/primary.webp"
+import GordonsSecondary from "../assets/gordons/secondary.webp"
 
 export const menu = [
   {
@@ -66,6 +74,49 @@ export const menu = [
     img_primary: SpriteSmallPrimary,
     img_secondary: SpriteSmallSecondary,
   },
+
+  {
+    type: "alco",
+    name: "bacardi",
+    price: 100,
+    volume: "50ml",
+    description: "Текст для бакарді",
+    img_primary: BacardiPrimary,
+    img_secondary: BacardiSecondary,
+  },
+
+  {
+    type: "alco",
+    name: "oakheart",
+    price: 100,
+    volume: "50ml",
+    description: "Текст для oakheart",
+    img_primary: OakheartPrimary,
+    img_secondary: OakheartSecondary,
+  },
+
+  {
+    type: "alco",
+    name: "beefeater",
+    price: 100,
+    volume: "50ml",
+    description: "Текст для beefeater",
+    img_primary: BeefaeterPrimary,
+    img_secondary: BeefaeterSecondary,
+  },
+
+  {
+    type: "alco",
+    name: "gordons",
+    price: 100,
+    volume: "50ml",
+    description: "Текст для gordons",
+    img_primary: GordonsPrimary,
+    img_secondary: GordonsSecondary,
+  },
+
+
+
   {
     type: "alco",
     name: "Jameson",

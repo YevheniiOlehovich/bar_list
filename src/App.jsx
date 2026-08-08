@@ -1,32 +1,37 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import Hero from "./components/Hero";
-import Header from "./components/Header";
-import DrinksList from "./components/DrinksList";
+import MenuSection from "./components/MenuSection";
 import Infoblock from "./components/Infoblock";
 import Map from "./components/Map";
 
+
 function App() {
   const menuRef = useRef(null);
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuClick = () => {
-    menuRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    setShowMenu(true);
+
+    setTimeout(() => {
+      menuRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
   };
 
   return (
     <>
       <Hero onMenuClick={handleMenuClick} />
 
-      <div ref={menuRef}>
-        <Header />
-        <DrinksList />
-      </div>
+      {showMenu && (
+        <div ref={menuRef}>
+          <MenuSection />
+        </div>
+      )}
 
       <Infoblock />
-
       <Map />
     </>
   );

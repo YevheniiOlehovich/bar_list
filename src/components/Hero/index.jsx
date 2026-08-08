@@ -8,6 +8,7 @@ import {
 
 import HeroeSlider from "../HeroeSlider";
 
+
 export default function Hero({ onMenuClick }) {
   return (
     <Box
@@ -161,3 +162,37 @@ export default function Hero({ onMenuClick }) {
     </Box>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
