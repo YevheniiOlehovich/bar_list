@@ -112,7 +112,7 @@ export const menu = [
     volume: "50ml",
     description: "Текст для gordons",
     img_primary: GordonsPrimary,
-    img_secondary: GordonsSecondaryn,
+    img_secondary: GordonsSecondary,
   },
 
 
