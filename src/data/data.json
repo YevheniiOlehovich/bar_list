@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "type": "hot-drink",
+    "name": "Амерікано",
+    "price": 50,
+    "volume": "150ml",
+    "description": "Класична чорна кава з насиченим смаком.",
+    "img_primary": "americano/primary.webp",
+    "img_secondary": "americano/secondary.webp"
+  },
+  {
+    "id": 2,
+    "type": "hot-drink",
+    "name": "Еспрессо",
+    "price": 50,
+    "volume": "50ml",
+    "description": "Міцна ароматна кава для справжніх поціновувачів.",
+    "img_primary": "espresso/primary.webp",
+    "img_secondary": "espresso/secondary.webp"
+  },
+  {
+    "id": 3,
+    "type": "hot-drink",
+    "name": "Капучіно",
+    "price": 50,
+    "volume": "150ml",
+    "description": "Ніжна кава з повітряною молочною пінкою.",
+    "img_primary": "cappuccino/primary.webp",
+    "img_secondary": "cappuccino/secondary.webp"
+  },
+  {
+    "id": 4,
+    "type": "hot-drink",
+    "name": "Латте",
+    "price": 50,
+    "volume": "150ml",
+    "description": "М'яка кава з великою кількістю молока.",
+    "img_primary": "latte/primary.webp",
+    "img_secondary": "latte/secondary.webp"
+  },
+  {
+    "id": 5,
+    "type": "non-alco",
+    "name": "Coca-Cola",
+    "price": 35,
+    "volume": "500ml",
+    "description": "Освіжаючий газований напій із класичним смаком.",
+    "img_primary": "coca-cola/primary.webp",
+    "img_secondary": "coca-cola/secondary.webp"
+  },
+  {
+    "id": 6,
+    "type": "non-alco",
+    "name": "Sprite",
+    "price": 35,
+    "volume": "500ml",
+    "description": "Легкий лимонно-лаймовий смак та освіжаюча прохолода.",
+    "img_primary": "sprite/primary.webp",
+    "img_secondary": "sprite/secondary.webp"
+  },
+  {
+    "id": 7,
+    "type": "non-alco",
+    "name": "Карпатска джерельна",
+    "price": 35,
+    "volume": "500ml",
+    "description": "Мыныралочка",
+    "img_primary": "karpatska-dzherelna/primary.webp",
+    "img_secondary": "karpatska-dzherelna/secondary.webp"
+  },
+  {
+    "id": 8,
+    "type": "non-alco",
+    "name": "Schweppes",
+    "price": 35,
+    "volume": "1000ml",
+    "description": "Schweppes",
+    "img_primary": "schweppes/primary.webp",
+    "img_secondary": "schweppes/secondary.webp"
+  },
+  {
+    "id": 7,
+    "type": "beer",
+    "name": "Чернігівське",
+    "price": 50,
+    "volume": "500ml",
+    "description": "chernihivske",
+    "img_primary": "chernihivske/primary.webp",
+    "img_secondary": "chernihivske/secondary.webp"
+  },
+  {
+    "id": 8,
+    "type": "beer",
+    "name": "Stella Artois",
+    "price": 50,
+    "volume": "500ml",
+    "description": "Stella Artois",
+    "img_primary": "stella/primary.webp",
+    "img_secondary": "stella/secondary.webp"
+  },
+  {
+    "id": 9,
+    "type": "beer",
+    "name": "Corona Extra",
+    "price": 100,
+    "volume": "330ml",
+    "description": "Corona Extra",
+    "img_primary": "corona/primary.webp",
+    "img_secondary": "corona/secondary.webp"
+  },
+  {
+    "id": 10,
+    "type": "alco",
+    "name": "Bacardi",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Текст для Bacardi.",
+    "img_primary": "bacardi/primary.webp",
+    "img_secondary": "bacardi/secondary.webp"
+  },
+  {
+    "id": 11,
+    "type": "alco",
+    "name": "Oakheart",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Текст для Oakheart.",
+    "img_primary": "oakheart/primary.webp",
+    "img_secondary": "oakheart/secondary.webp"
+  },
+  {
+    "id": 12,
+    "type": "alco",
+    "name": "Beefeater",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Текст для Beefeater.",
+    "img_primary": "beefeater/primary.webp",
+    "img_secondary": "beefeater/secondary.webp"
+  },
+  {
+    "id": 13,
+    "type": "alco",
+    "name": "Gordon's",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Текст для Gordon's.",
+    "img_primary": "gordons/primary.webp",
+    "img_secondary": "gordons/secondary.webp"
+  },
+  {
+    "id": 14,
+    "type": "alco",
+    "name": "Jameson",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Ірландський віскі з м'яким збалансованим смаком.",
+    "img_primary": "jameson/primary.webp",
+    "img_secondary": "jameson/secondary.webp"
+  },
+  {
+    "id": 14,
+    "type": "alco",
+    "name": "Jim Beam",
+    "price": 100,
+    "volume": "50ml",
+    "description": "jim beam.",
+    "img_primary": "jimbeam/primary.webp",
+    "img_secondary": "jimbeam/secondary.webp"
+  },
+  {
+    "id": 15,
+    "type": "alco",
+    "name": "Jim Beam Selection",
+    "price": 100,
+    "volume": "50ml",
+    "description": "jim beam.",
+    "img_primary": "jimbeam_other/primary.webp",
+    "img_secondary": "jimbeam_other/secondary.webp"
+  },
+  {
+    "id": 15,
+    "type": "alco",
+    "name": "Jack Daniel's",
+    "price": 100,
+    "volume": "50ml",
+    "description": "jackdaniels",
+    "img_primary": "jackdaniels/primary.webp",
+    "img_secondary": "jackdaniels/secondary.webp"
+  },
+  {
+    "id": 15,
+    "type": "alco",
+    "name": "Jägermeister",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Jägermeister",
+    "img_primary": "jager/primary.webp",
+    "img_secondary": "jager/secondary.webp"
+  },
+  {
+    "id": 12,
+    "type": "cocktail",
+    "name": "Aperol",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Легкий цитрусовий коктейль з гіркуватими нотами.",
+    "img_primary": "/menu/aperol/primary.webp",
+    "img_secondary": "/menu/aperol/secondary.webp"
+  },
+  {
+    "id": 13,
+    "type": "shot",
+    "name": "Mad-Dog",
+    "price": 50,
+    "volume": "50ml",
+    "description": "Яскравий шот із гострим та насиченим смаком.",
+    "img_primary": "/menu/mad-dog/primary.webp",
+    "img_secondary": "/menu/mad-dog/secondary.webp"
+  }
+]

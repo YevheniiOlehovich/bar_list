@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { menu as drinks } from '../../data/data';
+import drinks from "../../data/data.json";
 
 import {
     AppBar,
@@ -14,19 +14,19 @@ import {
     ListItemButton,
     ListItemText,
     useMediaQuery,
-} from '@mui/material';
+} from "@mui/material";
 
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 
 import {
     categoryLabels,
     categoryOrder,
-} from '../../helpers/categories';
+} from "../../helpers/categories";
 
-import { useCategoryStore } from '../../store/useCategoryStore';
+import { useCategoryStore } from "../../store/useCategoryStore";
 
 export default function Header() {
-    const isMobile = useMediaQuery('(max-width:768px)');
+    const isMobile = useMediaQuery("(max-width:768px)");
 
     const [open, setOpen] = useState(false);
 
@@ -44,7 +44,7 @@ export default function Header() {
 
     const categories = categoryOrder.filter(
         (category) =>
-            category === 'all' ||
+            category === "all" ||
             existingTypes.has(category)
     );
 
@@ -53,34 +53,26 @@ export default function Header() {
             position="sticky"
             elevation={0}
             sx={{
-                background:
-                    'rgba(15,15,15,0.85)',
-
-                backdropFilter:
-                    'blur(20px)',
-
-                WebkitBackdropFilter:
-                    'blur(20px)',
-
-                boxShadow: 'none',
-
+                background: "rgba(15,15,15,0.85)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                boxShadow: "none",
                 borderBottom:
-                    '1px solid rgba(255,255,255,0.08)',
+                    "1px solid rgba(255,255,255,0.08)",
             }}
         >
             <Toolbar
                 sx={{
-                    minHeight: '80px',
+                    minHeight: "80px",
                 }}
             >
                 {isMobile ? (
                     <>
                         <Box
                             sx={{
-                                width: '100%',
-                                display: 'flex',
-                                justifyContent:
-                                    'flex-end',
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: "flex-end",
                             }}
                         >
                             <IconButton
@@ -88,7 +80,7 @@ export default function Header() {
                                     setOpen(true)
                                 }
                                 sx={{
-                                    color: '#fff',
+                                    color: "#fff",
                                 }}
                             >
                                 <MenuIcon />
@@ -102,43 +94,30 @@ export default function Header() {
                                 setOpen(false)
                             }
                             sx={{
-                                '& .MuiDrawer-paper': {
-                                    width: '75vw',
-                                    maxWidth:
-                                        '320px',
-
+                                "& .MuiDrawer-paper": {
+                                    width: "75vw",
+                                    maxWidth: "320px",
                                     background:
-                                        'rgba(15,15,15,0.75)',
-
+                                        "rgba(15,15,15,0.75)",
                                     backdropFilter:
-                                        'blur(20px)',
-
-                                    color: '#fff',
-
+                                        "blur(20px)",
+                                    color: "#fff",
                                     borderLeft:
-                                        '1px solid rgba(255,255,255,0.08)',
-
-                                    boxShadow:
-                                        'none',
+                                        "1px solid rgba(255,255,255,0.08)",
+                                    boxShadow: "none",
                                 },
 
-                                '& .MuiBackdrop-root':
-                                    {
-                                        background:
-                                            'rgba(0,0,0,0.35)',
-
-                                        backdropFilter:
-                                            'blur(4px)',
-                                    },
+                                "& .MuiBackdrop-root": {
+                                    background:
+                                        "rgba(0,0,0,0.35)",
+                                    backdropFilter:
+                                        "blur(4px)",
+                                },
                             }}
                         >
-                            <List
-                                sx={{ pt: 2 }}
-                            >
+                            <List sx={{ pt: 2 }}>
                                 {categories.map(
-                                    (
-                                        category
-                                    ) => (
+                                    (category) => (
                                         <ListItem
                                             key={
                                                 category
@@ -150,7 +129,6 @@ export default function Header() {
                                                     setActiveCategory(
                                                         category
                                                     );
-
                                                     setOpen(
                                                         false
                                                     );
@@ -158,25 +136,22 @@ export default function Header() {
                                                 sx={{
                                                     mx: 1,
                                                     my: 0.5,
-
                                                     borderRadius: 2,
-
                                                     color:
                                                         activeCategory ===
                                                         category
-                                                            ? '#d4af37'
-                                                            : '#fff',
-
+                                                            ? "#d4af37"
+                                                            : "#fff",
                                                     background:
                                                         activeCategory ===
                                                         category
-                                                            ? 'rgba(212,175,55,0.15)'
-                                                            : 'transparent',
+                                                            ? "rgba(212,175,55,0.15)"
+                                                            : "transparent",
 
-                                                    '&:hover':
+                                                    "&:hover":
                                                         {
                                                             background:
-                                                                'rgba(255,255,255,0.08)',
+                                                                "rgba(255,255,255,0.08)",
                                                         },
                                                 }}
                                             >
@@ -197,23 +172,20 @@ export default function Header() {
                 ) : (
                     <Box
                         sx={{
-                            width: '100%',
-                            display: 'flex',
+                            width: "100%",
+                            display: "flex",
                             justifyContent:
-                                'center',
+                                "center",
                             alignItems:
-                                'center',
+                                "center",
                             gap: 2,
-                            flexWrap:
-                                'wrap',
+                            flexWrap: "wrap",
                         }}
                     >
                         {categories.map(
                             (category) => (
                                 <Button
-                                    key={
-                                        category
-                                    }
+                                    key={category}
                                     onClick={() =>
                                         setActiveCategory(
                                             category
@@ -223,51 +195,51 @@ export default function Header() {
                                         background:
                                             activeCategory ===
                                             category
-                                                ? 'rgba(212,175,55,0.2)'
-                                                : 'rgba(255,255,255,0.08)',
+                                                ? "rgba(212,175,55,0.2)"
+                                                : "rgba(255,255,255,0.08)",
 
                                         backdropFilter:
-                                            'blur(10px)',
+                                            "blur(10px)",
 
                                         borderRadius:
-                                            '30px',
+                                            "30px",
 
                                         px: 3,
                                         py: 1,
 
                                         textTransform:
-                                            'none',
+                                            "none",
 
                                         fontWeight: 600,
 
                                         color:
                                             activeCategory ===
                                             category
-                                                ? '#d4af37'
-                                                : '#fff',
+                                                ? "#d4af37"
+                                                : "#fff",
 
                                         border:
                                             activeCategory ===
                                             category
-                                                ? '1px solid rgba(212,175,55,0.5)'
-                                                : '1px solid transparent',
+                                                ? "1px solid rgba(212,175,55,0.5)"
+                                                : "1px solid transparent",
 
                                         boxShadow:
-                                            'none',
+                                            "none",
 
                                         transition:
-                                            '0.2s ease',
+                                            "0.2s ease",
 
-                                        '&:hover':
+                                        "&:hover":
                                             {
                                                 background:
                                                     activeCategory ===
                                                     category
-                                                        ? 'rgba(212,175,55,0.3)'
-                                                        : 'rgba(255,255,255,0.18)',
+                                                        ? "rgba(212,175,55,0.3)"
+                                                        : "rgba(255,255,255,0.18)",
 
                                                 transform:
-                                                    'translateY(-2px)',
+                                                    "translateY(-2px)",
                                             },
                                     }}
                                 >
