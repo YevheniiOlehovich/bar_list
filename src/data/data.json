@@ -111,6 +111,16 @@
   },
   {
     "id": 10,
+    "type": "beer",
+    "name": "Mikes hard drink",
+    "price": 100,
+    "volume": "500ml",
+    "description": "Mikes hard drink",
+    "img_primary": "mikes/primary.webp",
+    "img_secondary": "mikes/secondary.webp"
+  },
+  {
+    "id": 11,
     "type": "alco",
     "name": "Bacardi",
     "price": 100,
@@ -120,7 +130,7 @@
     "img_secondary": "bacardi/secondary.webp"
   },
   {
-    "id": 11,
+    "id": 12,
     "type": "alco",
     "name": "Oakheart",
     "price": 100,
@@ -130,7 +140,7 @@
     "img_secondary": "oakheart/secondary.webp"
   },
   {
-    "id": 12,
+    "id": 13,
     "type": "alco",
     "name": "Beefeater",
     "price": 100,
@@ -140,7 +150,7 @@
     "img_secondary": "beefeater/secondary.webp"
   },
   {
-    "id": 13,
+    "id": 14,
     "type": "alco",
     "name": "Gordon's",
     "price": 100,
@@ -150,7 +160,7 @@
     "img_secondary": "gordons/secondary.webp"
   },
   {
-    "id": 14,
+    "id": 15,
     "type": "alco",
     "name": "Jameson",
     "price": 100,
@@ -160,7 +170,7 @@
     "img_secondary": "jameson/secondary.webp"
   },
   {
-    "id": 14,
+    "id": 16,
     "type": "alco",
     "name": "Jim Beam",
     "price": 100,
@@ -170,7 +180,7 @@
     "img_secondary": "jimbeam/secondary.webp"
   },
   {
-    "id": 15,
+    "id": 17,
     "type": "alco",
     "name": "Jim Beam Selection",
     "price": 100,
@@ -180,7 +190,7 @@
     "img_secondary": "jimbeam_other/secondary.webp"
   },
   {
-    "id": 15,
+    "id": 18,
     "type": "alco",
     "name": "Jack Daniel's",
     "price": 100,
@@ -190,7 +200,7 @@
     "img_secondary": "jackdaniels/secondary.webp"
   },
   {
-    "id": 15,
+    "id": 19,
     "type": "alco",
     "name": "Jägermeister",
     "price": 100,
@@ -200,7 +210,37 @@
     "img_secondary": "jager/secondary.webp"
   },
   {
-    "id": 12,
+    "id": 20,
+    "type": "alco",
+    "name": "Aznauri",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Aznauri",
+    "img_primary": "aznauri/primary.webp",
+    "img_secondary": "aznauri/secondary.webp"
+  },
+  {
+    "id": 21,
+    "type": "alco",
+    "name": "GreenDay",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Greenday",
+    "img_primary": "greenday/primary.webp",
+    "img_secondary": "greenday/secondary.webp"
+  },
+  {
+    "id": 22,
+    "type": "alco",
+    "name": "Khortytsia",
+    "price": 100,
+    "volume": "50ml",
+    "description": "Khortytsia",
+    "img_primary": "khortytsia/primary.webp",
+    "img_secondary": "khortytsia/secondary.webp"
+  },
+  {
+    "id": 23,
     "type": "cocktail",
     "name": "Aperol",
     "price": 100,
@@ -210,13 +250,63 @@
     "img_secondary": "/menu/aperol/secondary.webp"
   },
   {
-    "id": 13,
+    "id": 24,
     "type": "shot",
     "name": "Mad-Dog",
     "price": 50,
     "volume": "50ml",
     "description": "Яскравий шот із гострим та насиченим смаком.",
-    "img_primary": "/menu/mad-dog/primary.webp",
-    "img_secondary": "/menu/mad-dog/secondary.webp"
+    "img_primary": "maddog/primary.webp",
+    "img_secondary": "maddog/secondary.webp"
+  },
+  {
+    "id": 25,
+    "type": "shot",
+    "name": "Uncle Ivan",
+    "price": 50,
+    "volume": "50ml",
+    "description": "Яскравий шот із гострим та насиченим смаком.",
+    "img_primary": "ivan/primary.webp",
+    "img_secondary": "ivan/secondary.webp"
+  },
+  {
+    "id": 26,
+    "type": "shot",
+    "name": "Meduza",
+    "price": 50,
+    "volume": "50ml",
+    "description": "Meduza",
+    "img_primary": "meduza/primary.webp",
+    "img_secondary": "meduza/secondary.webp"
+  },
+  {
+    "id": 27,
+    "type": "shot",
+    "name": "Green Mexicano",
+    "price": 50,
+    "volume": "50ml",
+    "description": "Green Mexicano",
+    "img_primary": "mexicano/primary.webp",
+    "img_secondary": "mexicano/secondary.webp"
+  },
+  {
+    "id": 28,
+    "type": "shot",
+    "name": "Hiroshima",
+    "price": 50,
+    "volume": "50ml",
+    "description": "Hiroshima",
+    "img_primary": "hiroshima/primary.webp",
+    "img_secondary": "hiroshima/secondary.webp"
+  },
+  {
+    "id": 28,
+    "type": "shot",
+    "name": "B52",
+    "price": 50,
+    "volume": "50ml",
+    "description": "B52",
+    "img_primary": "b52/primary.webp",
+    "img_secondary": "b52/secondary.webp"
   }
 ]
