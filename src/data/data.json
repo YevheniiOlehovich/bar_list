@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 101,
     "type": "hot-drink",
     "name": "Амерікано",
     "price": 50,
@@ -10,7 +10,7 @@
     "img_secondary": "americano/secondary.webp"
   },
   {
-    "id": 2,
+    "id": 102,
     "type": "hot-drink",
     "name": "Еспрессо",
     "price": 50,
@@ -20,7 +20,7 @@
     "img_secondary": "espresso/secondary.webp"
   },
   {
-    "id": 3,
+    "id": 103,
     "type": "hot-drink",
     "name": "Капучіно",
     "price": 50,
@@ -30,7 +30,7 @@
     "img_secondary": "cappuccino/secondary.webp"
   },
   {
-    "id": 4,
+    "id": 104,
     "type": "hot-drink",
     "name": "Латте",
     "price": 50,
@@ -40,7 +40,7 @@
     "img_secondary": "latte/secondary.webp"
   },
   {
-    "id": 5,
+    "id": 201,
     "type": "non-alco",
     "name": "Coca-Cola",
     "price": 35,
@@ -50,7 +50,7 @@
     "img_secondary": "coca-cola/secondary.webp"
   },
   {
-    "id": 6,
+    "id": 202,
     "type": "non-alco",
     "name": "Sprite",
     "price": 35,
@@ -60,7 +60,7 @@
     "img_secondary": "sprite/secondary.webp"
   },
   {
-    "id": 7,
+    "id": 203,
     "type": "non-alco",
     "name": "Карпатска джерельна",
     "price": 35,
@@ -70,7 +70,7 @@
     "img_secondary": "karpatska-dzherelna/secondary.webp"
   },
   {
-    "id": 8,
+    "id": 204,
     "type": "non-alco",
     "name": "Schweppes",
     "price": 35,
@@ -80,7 +80,7 @@
     "img_secondary": "schweppes/secondary.webp"
   },
   {
-    "id": 7,
+    "id": 301,
     "type": "beer",
     "name": "Чернігівське",
     "price": 50,
@@ -90,7 +90,7 @@
     "img_secondary": "chernihivske/secondary.webp"
   },
   {
-    "id": 8,
+    "id": 302,
     "type": "beer",
     "name": "Stella Artois",
     "price": 50,
@@ -100,7 +100,7 @@
     "img_secondary": "stella/secondary.webp"
   },
   {
-    "id": 9,
+    "id": 303,
     "type": "beer",
     "name": "Corona Extra",
     "price": 100,
@@ -110,7 +110,7 @@
     "img_secondary": "corona/secondary.webp"
   },
   {
-    "id": 10,
+    "id": 304,
     "type": "beer",
     "name": "Mikes hard drink",
     "price": 100,
@@ -120,7 +120,7 @@
     "img_secondary": "mikes/secondary.webp"
   },
   {
-    "id": 11,
+    "id": 401,
     "type": "alco",
     "name": "Bacardi",
     "price": 100,
@@ -130,7 +130,7 @@
     "img_secondary": "bacardi/secondary.webp"
   },
   {
-    "id": 12,
+    "id": 402,
     "type": "alco",
     "name": "Oakheart",
     "price": 100,
@@ -140,7 +140,7 @@
     "img_secondary": "oakheart/secondary.webp"
   },
   {
-    "id": 13,
+    "id": 403,
     "type": "alco",
     "name": "Beefeater",
     "price": 100,
@@ -150,7 +150,7 @@
     "img_secondary": "beefeater/secondary.webp"
   },
   {
-    "id": 14,
+    "id": 404,
     "type": "alco",
     "name": "Gordon's",
     "price": 100,
@@ -160,7 +160,7 @@
     "img_secondary": "gordons/secondary.webp"
   },
   {
-    "id": 15,
+    "id": 405,
     "type": "alco",
     "name": "Jameson",
     "price": 100,
@@ -170,7 +170,7 @@
     "img_secondary": "jameson/secondary.webp"
   },
   {
-    "id": 16,
+    "id": 406,
     "type": "alco",
     "name": "Jim Beam",
     "price": 100,
@@ -180,7 +180,7 @@
     "img_secondary": "jimbeam/secondary.webp"
   },
   {
-    "id": 17,
+    "id": 407,
     "type": "alco",
     "name": "Jim Beam Selection",
     "price": 100,
@@ -190,7 +190,7 @@
     "img_secondary": "jimbeam_other/secondary.webp"
   },
   {
-    "id": 18,
+    "id": 408,
     "type": "alco",
     "name": "Jack Daniel's",
     "price": 100,
@@ -200,7 +200,7 @@
     "img_secondary": "jackdaniels/secondary.webp"
   },
   {
-    "id": 19,
+    "id": 409,
     "type": "alco",
     "name": "Jägermeister",
     "price": 100,
@@ -210,7 +210,7 @@
     "img_secondary": "jager/secondary.webp"
   },
   {
-    "id": 20,
+    "id": 410,
     "type": "alco",
     "name": "Aznauri",
     "price": 100,
@@ -220,7 +220,7 @@
     "img_secondary": "aznauri/secondary.webp"
   },
   {
-    "id": 21,
+    "id": 411,
     "type": "alco",
     "name": "GreenDay",
     "price": 100,
@@ -230,7 +230,7 @@
     "img_secondary": "greenday/secondary.webp"
   },
   {
-    "id": 22,
+    "id": 412,
     "type": "alco",
     "name": "Khortytsia",
     "price": 100,
@@ -240,7 +240,7 @@
     "img_secondary": "khortytsia/secondary.webp"
   },
   {
-    "id": 24,
+    "id": 501,
     "type": "shot",
     "name": "Mad-Dog",
     "price": 50,
@@ -250,7 +250,7 @@
     "img_secondary": "maddog/secondary.webp"
   },
   {
-    "id": 25,
+    "id": 502,
     "type": "shot",
     "name": "Uncle Ivan",
     "price": 50,
@@ -260,7 +260,7 @@
     "img_secondary": "ivan/secondary.webp"
   },
   {
-    "id": 26,
+    "id": 503,
     "type": "shot",
     "name": "Meduza",
     "price": 50,
@@ -270,7 +270,7 @@
     "img_secondary": "meduza/secondary.webp"
   },
   {
-    "id": 27,
+    "id": 504,
     "type": "shot",
     "name": "Green Mexicano",
     "price": 50,
@@ -280,7 +280,7 @@
     "img_secondary": "mexicano/secondary.webp"
   },
   {
-    "id": 28,
+    "id": 505,
     "type": "shot",
     "name": "Hiroshima",
     "price": 50,
@@ -290,7 +290,7 @@
     "img_secondary": "hiroshima/secondary.webp"
   },
   {
-    "id": 28,
+    "id": 506,
     "type": "shot",
     "name": "B52",
     "price": 50,
@@ -300,7 +300,7 @@
     "img_secondary": "b52/secondary.webp"
   },
   {
-    "id": 29,
+    "id": 601,
     "type": "cocktail",
     "name": "Tequila Sunrise",
     "price": 100,
@@ -310,7 +310,7 @@
     "img_secondary": "tequilasunrise/secondary.webp"
   },
   {
-    "id": 30,
+    "id": 602,
     "type": "cocktail",
     "name": "Sex on the beach",
     "price": 100,
@@ -320,7 +320,7 @@
     "img_secondary": "sexonthebeach/secondary.webp"
   },
   {
-    "id": 31,
+    "id": 603,
     "type": "cocktail",
     "name": "Screwdriver",
     "price": 100,
@@ -330,7 +330,7 @@
     "img_secondary": "screwdriver/secondary.webp"
   },
   {
-    "id": 32,
+    "id": 604,
     "type": "cocktail",
     "name": "Piña colada",
     "price": 100,
@@ -340,7 +340,7 @@
     "img_secondary": "pinacolada/secondary.webp"
   },
   {
-    "id": 33,
+    "id": 605,
     "type": "cocktail",
     "name": "Mojito",
     "price": 100,
@@ -350,7 +350,7 @@
     "img_secondary": "mojito/secondary.webp"
   },
   {
-    "id": 34,
+    "id": 606,
     "type": "cocktail",
     "name": "Long Island Iced Tea",
     "price": 100,
@@ -360,7 +360,7 @@
     "img_secondary": "longisland/secondary.webp"
   },
   {
-    "id": 35,
+    "id": 607,
     "type": "cocktail",
     "name": "Gin and tonic",
     "price": 100,
@@ -370,7 +370,7 @@
     "img_secondary": "jintonic/secondary.webp"
   },
   {
-    "id": 36,
+    "id": 608,
     "type": "cocktail",
     "name": "Cuba Libre",
     "price": 100,
@@ -380,7 +380,7 @@
     "img_secondary": "cubalibre/secondary.webp"
   },
   {
-    "id": 37,
+    "id": 609,
     "type": "cocktail",
     "name": "Blue Lagoon",
     "price": 100,
@@ -390,7 +390,7 @@
     "img_secondary": "bluelagoon/secondary.webp"
   },
   {
-    "id": 38,
+    "id": 610,
     "type": "cocktail",
     "name": "Aperol Spritz",
     "price": 100,
@@ -400,7 +400,7 @@
     "img_secondary": "aperol/secondary.webp"
   },
   {
-    "id": 39,
+    "id": 701,
     "type": "goods",
     "name": "Pringles",
     "price": 100,
@@ -410,7 +410,7 @@
     "img_secondary": "pringles/secondary.webp"
   },
   {
-    "id": 40,
+    "id": 702,
     "type": "goods",
     "name": "Lays",
     "price": 100,
@@ -420,7 +420,7 @@
     "img_secondary": "lays/secondary.webp"
   },
   {
-    "id": 41,
+    "id": 703,
     "type": "goods",
     "name": "Bruschette CHIPS",
     "price": 100,
@@ -430,7 +430,7 @@
     "img_secondary": "maretti/secondary.webp"
   },
   {
-    "id": 42,
+    "id": 704,
     "type": "goods",
     "name": "Big Bob",
     "price": 100,
@@ -440,7 +440,7 @@
     "img_secondary": "bigbob/secondary.webp"
   },
   {
-    "id": 43,
+    "id": 801,
     "type": "wine",
     "name": "Fragolino",
     "price": 100,
@@ -450,7 +450,7 @@
     "img_secondary": "fragolino/secondary.webp"
   },
   {
-    "id": 44,
+    "id": 802,
     "type": "wine",
     "name": "Marengo",
     "price": 100,
