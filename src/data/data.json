@@ -240,16 +240,6 @@
     "img_secondary": "khortytsia/secondary.webp"
   },
   {
-    "id": 23,
-    "type": "cocktail",
-    "name": "Aperol",
-    "price": 100,
-    "volume": "200ml",
-    "description": "Легкий цитрусовий коктейль з гіркуватими нотами.",
-    "img_primary": "/menu/aperol/primary.webp",
-    "img_secondary": "/menu/aperol/secondary.webp"
-  },
-  {
     "id": 24,
     "type": "shot",
     "name": "Mad-Dog",
@@ -308,5 +298,165 @@
     "description": "B52",
     "img_primary": "b52/primary.webp",
     "img_secondary": "b52/secondary.webp"
+  },
+  {
+    "id": 29,
+    "type": "cocktail",
+    "name": "Tequila Sunrise",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Tequila Sunrise",
+    "img_primary": "tequilasunrise/primary.webp",
+    "img_secondary": "tequilasunrise/secondary.webp"
+  },
+  {
+    "id": 30,
+    "type": "cocktail",
+    "name": "Sex on the beach",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Sex on the beach",
+    "img_primary": "sexonthebeach/primary.webp",
+    "img_secondary": "sexonthebeach/secondary.webp"
+  },
+  {
+    "id": 31,
+    "type": "cocktail",
+    "name": "Screwdriver",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Screwdriver",
+    "img_primary": "screwdriver/primary.webp",
+    "img_secondary": "screwdriver/secondary.webp"
+  },
+  {
+    "id": 32,
+    "type": "cocktail",
+    "name": "Piña colada",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Piña colada",
+    "img_primary": "pinacolada/primary.webp",
+    "img_secondary": "pinacolada/secondary.webp"
+  },
+  {
+    "id": 33,
+    "type": "cocktail",
+    "name": "Mojito",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Mojito",
+    "img_primary": "mojito/primary.webp",
+    "img_secondary": "mojito/secondary.webp"
+  },
+  {
+    "id": 34,
+    "type": "cocktail",
+    "name": "Long Island Iced Tea",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Long Island Iced Tea",
+    "img_primary": "longisland/primary.webp",
+    "img_secondary": "longisland/secondary.webp"
+  },
+  {
+    "id": 35,
+    "type": "cocktail",
+    "name": "Gin and tonic",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Gin and tonic",
+    "img_primary": "jintonic/primary.webp",
+    "img_secondary": "jintonic/secondary.webp"
+  },
+  {
+    "id": 36,
+    "type": "cocktail",
+    "name": "Cuba Libre",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Cuba Libre",
+    "img_primary": "cubalibre/primary.webp",
+    "img_secondary": "cubalibre/secondary.webp"
+  },
+  {
+    "id": 37,
+    "type": "cocktail",
+    "name": "Blue Lagoon",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Blue Lagoon",
+    "img_primary": "bluelagoon/primary.webp",
+    "img_secondary": "bluelagoon/secondary.webp"
+  },
+  {
+    "id": 38,
+    "type": "cocktail",
+    "name": "Aperol Spritz",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Aperol Spritz",
+    "img_primary": "aperol/primary.webp",
+    "img_secondary": "aperol/secondary.webp"
+  },
+  {
+    "id": 39,
+    "type": "goods",
+    "name": "Pringles",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Pringles",
+    "img_primary": "pringles/primary.webp",
+    "img_secondary": "pringles/secondary.webp"
+  },
+  {
+    "id": 40,
+    "type": "goods",
+    "name": "Lays",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Lays",
+    "img_primary": "lays/primary.webp",
+    "img_secondary": "lays/secondary.webp"
+  },
+  {
+    "id": 41,
+    "type": "goods",
+    "name": "Bruschette CHIPS",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Bruschette CHIPS",
+    "img_primary": "maretti/primary.webp",
+    "img_secondary": "maretti/secondary.webp"
+  },
+  {
+    "id": 42,
+    "type": "goods",
+    "name": "Big Bob",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Big Bob",
+    "img_primary": "bigbob/primary.webp",
+    "img_secondary": "bigbob/secondary.webp"
+  },
+  {
+    "id": 43,
+    "type": "wine",
+    "name": "Fragolino",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Fragolino",
+    "img_primary": "fragolino/primary.webp",
+    "img_secondary": "fragolino/secondary.webp"
+  },
+  {
+    "id": 44,
+    "type": "wine",
+    "name": "Marengo",
+    "price": 100,
+    "volume": "200ml",
+    "description": "Marengo",
+    "img_primary": "marengo/primary.webp",
+    "img_secondary": "marengo/secondary.webp"
   }
 ]
