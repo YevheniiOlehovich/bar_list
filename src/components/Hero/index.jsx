@@ -18,8 +18,7 @@ export default function Hero({ onMenuClick }) {
         display: "flex",
         alignItems: "center",
 
-        background:
-          "linear-gradient(180deg, #0f0f0f 0%, #181818 100%)",
+        background: "#111",
 
         py: {
           xs: 6,

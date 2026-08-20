@@ -1,12 +1,10 @@
 import { useState } from "react";
 
 import {
-    Card,
-    CardMedia,
+    Card as MuiCard,
     Box,
     Typography,
     Chip,
-    useMediaQuery,
 } from "@mui/material";
 
 import TestImage from "../../assets/test_image.jpeg";
@@ -16,34 +14,29 @@ import {
     categoryColors,
 } from "../../helpers/categories";
 
+import DrinkModal from "../DrinkModal";
+
 export default function DrinkCard({ drink }) {
-    const isMobile = useMediaQuery("(max-width:768px)");
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isModalOpen, setIsModalOpen] =
+        useState(false);
 
-    const handleOpen = () => {
-        if (!isMobile) setIsExpanded(true);
-    };
-
-    const handleClose = () => {
-        if (!isMobile) setIsExpanded(false);
-    };
-
-    const handleClick = () => {
-        if (isMobile) {
-            setIsExpanded((prev) => !prev);
-        }
-    };
+    // ==========================================
+    // IMAGE URL
+    // ==========================================
 
     const getImageUrl = (path) => {
-        if (!path) return null;
+        if (!path) {
+            return null;
+        }
 
-        // Якщо це вже повний URL — повертаємо як є
         if (path.startsWith("http")) {
             return path;
         }
 
-        // Додаємо BASE_URL (/bar_list/) і прибираємо зайвий "/"
-        return `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+        return `${import.meta.env.BASE_URL}${path.replace(
+            /^\//,
+            ""
+        )}`;
     };
 
     const primaryImage =
@@ -51,182 +44,521 @@ export default function DrinkCard({ drink }) {
         drink?.image ||
         TestImage;
 
-    const secondaryImage = getImageUrl(
-        drink?.img_secondary
-    );
+    // ==========================================
+    // MODAL
+    // ==========================================
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
-        <Card
-            onClick={handleClick}
-            onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}
-            sx={{
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: 4,
-                cursor: "pointer",
-                height: 500,
-                backgroundColor: "#181818",
-                transition: "all .3s ease",
+        <>
+            {/* ==================================
+                DRINK CARD
+            ================================== */}
 
-                "&:hover": {
-                    boxShadow:
-                        "0 0 30px rgba(212,175,55,0.25)",
-                },
-
-                "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                        "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%)",
-                    transform: isExpanded
-                        ? "translateX(150%)"
-                        : "translateX(-150%)",
-                    transition: ".8s ease",
-                    pointerEvents: "none",
-                    zIndex: 2,
-                },
-            }}
-        >
-            <CardMedia
-                component="img"
-                image={primaryImage}
-                alt={drink?.name}
+            <MuiCard
+                elevation={0}
                 sx={{
-                    position: "absolute",
-                    inset: 0,
                     width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    transition: ".5s ease",
-                    transform: isExpanded
-                        ? "scale(1.08)"
-                        : "scale(1)",
-                }}
-            />
 
-            {secondaryImage && (
-                <CardMedia
-                    component="img"
-                    image={secondaryImage}
-                    alt={`${drink?.name} secondary`}
-                    sx={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        opacity: isExpanded ? 1 : 0,
-                        transition: "opacity .4s ease",
-                    }}
-                />
-            )}
+                    minHeight: {
+                        xs: 190,
+                        sm: 220,
+                        md: 240,
+                        lg: 250,
+                    },
 
-            <Box
-                sx={{
-                    position: "absolute",
-                    top: 16,
-                    left: 16,
-                    zIndex: 3,
-                }}
-            >
-                <Chip
-                    label={
-                        categoryLabels[drink?.type] ||
-                        drink?.type
-                    }
-                    sx={{
-                        background:
-                            categoryColors[drink?.type] ||
-                            "#d4af37",
-                        color: "#fff",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                    }}
-                />
-            </Box>
+                    display: "flex",
 
-            <Box
-                sx={{
-                    position: "absolute",
-                    top: 16,
-                    right: 16,
-                    px: 2,
-                    py: 1,
-                    borderRadius: 999,
+                    position: "relative",
+
+                    overflow: "hidden",
+
+                    borderRadius: {
+                        xs: 3,
+                        sm: 3.5,
+                        md: 4,
+                    },
+
                     background:
-                        "linear-gradient(135deg,#f7e08a,#d4af37,#f7e08a)",
-                    color: "#111",
-                    fontWeight: 800,
-                    zIndex: 3,
-                }}
-            >
-                {drink?.price} ₴
-            </Box>
+                        "linear-gradient(135deg, #1a1a1a 0%, #141414 100%)",
 
-            <Box
-                sx={{
-                    position: "absolute",
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    p: 3,
+                    border:
+                        "1px solid rgba(255,255,255,0.08)",
+
                     color: "#fff",
-                    zIndex: 3,
-                    background:
-                        "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35), rgba(0,0,0,0.95))",
-                    transform: isExpanded
-                        ? "translateY(0)"
-                        : "translateY(calc(100% - 70px))",
-                    transition: ".35s ease",
+
+                    transition:
+                        "border-color .25s ease, box-shadow .25s ease, transform .25s ease",
+
+                    "&:hover": {
+                        borderColor:
+                            "rgba(212,175,55,0.35)",
+
+                        boxShadow:
+                            "0 14px 40px rgba(0,0,0,0.28)",
+                    },
+
+                    /*
+                     * На екранах від 1024px
+                     * трохи більше простору.
+                     */
+                    "@media (min-width: 1024px)": {
+                        minHeight: 250,
+                    },
                 }}
             >
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: 800,
-                        textTransform: "uppercase",
-                        mb: 2,
-                        fontSize: {
-                            xs: "1.5rem",
-                            md: "2rem",
-                        },
-                    }}
-                >
-                    {drink?.name}
-                </Typography>
+                {/* ==================================
+                    LEFT — INFORMATION
+                ================================== */}
 
                 <Box
                     sx={{
+                        flex: 1,
+
+                        minWidth: 0,
+
                         display: "flex",
-                        justifyContent: "space-between",
-                        py: 1.5,
-                        borderTop:
-                            "1px solid rgba(255,255,255,0.15)",
-                        borderBottom:
-                            "1px solid rgba(255,255,255,0.15)",
+
+                        flexDirection:
+                            "column",
+
+                        justifyContent:
+                            "center",
+
+                        p: {
+                            xs: 2,
+                            sm: 2.75,
+                            md: 3.25,
+                            lg: 3.5,
+                        },
+
+                        pr: {
+                            xs: 1.25,
+                            sm: 2,
+                            md: 3,
+                            lg: 3.5,
+                        },
                     }}
                 >
-                    <Typography>Об'єм</Typography>
+                    {/* ==================================
+                        CATEGORY
+                    ================================== */}
 
-                    <Typography fontWeight={700}>
-                        {drink?.volume}
+                    <Box
+                        sx={{
+                            mb: {
+                                xs: 1,
+                                sm: 1.25,
+                                md: 1.5,
+                            },
+                        }}
+                    >
+                        <Chip
+                            size="small"
+                            label={
+                                categoryLabels[
+                                    drink?.type
+                                ] ||
+                                drink?.type
+                            }
+                            sx={{
+                                height: {
+                                    xs: 25,
+                                    sm: 27,
+                                    md: 29,
+                                },
+
+                                px: {
+                                    xs: 0.3,
+                                    md: 0.5,
+                                },
+
+                                background:
+                                    categoryColors[
+                                        drink?.type
+                                    ] ||
+                                    "#d4af37",
+
+                                color: "#fff",
+
+                                fontFamily:
+                                    '"Montserrat", sans-serif',
+
+                                fontSize: {
+                                    xs: 9,
+                                    sm: 10,
+                                    md: 11,
+                                },
+
+                                fontWeight: 700,
+
+                                textTransform:
+                                    "uppercase",
+
+                                letterSpacing:
+                                    "0.6px",
+                            }}
+                        />
+                    </Box>
+
+                    {/* ==================================
+                        NAME
+                    ================================== */}
+
+                    <Typography
+                        sx={{
+                            fontFamily:
+                                '"Bebas Neue", sans-serif',
+
+                            fontSize: {
+                                xs: 26,
+                                sm: 31,
+                                md: 35,
+                                lg: 39,
+                            },
+
+                            lineHeight: {
+                                xs: 0.98,
+                                sm: 1,
+                                md: 1.02,
+                            },
+
+                            fontWeight: 400,
+
+                            textTransform:
+                                "uppercase",
+
+                            letterSpacing: {
+                                xs: "0.4px",
+                                sm: "0.6px",
+                                md: "0.8px",
+                            },
+
+                            color: "#fff",
+
+                            mb: {
+                                xs: 1,
+                                sm: 1.25,
+                                md: 1.5,
+                            },
+
+                            /*
+                             * Щоб дуже довга назва
+                             * не розвалила картку.
+                             */
+                            display:
+                                "-webkit-box",
+
+                            WebkitBoxOrient:
+                                "vertical",
+
+                            WebkitLineClamp: {
+                                xs: 2,
+                                sm: 2,
+                                md: 2,
+                            },
+
+                            overflow: "hidden",
+
+                            textOverflow:
+                                "ellipsis",
+                        }}
+                    >
+                        {drink?.name}
+                    </Typography>
+
+                    {/* ==================================
+                        VOLUME
+                    ================================== */}
+
+                    {drink?.volume && (
+                        <Box
+                            sx={{
+                                display: "flex",
+
+                                alignItems:
+                                    "center",
+
+                                gap: {
+                                    xs: 0.75,
+                                    sm: 1,
+                                },
+
+                                mb: {
+                                    xs: 1,
+                                    sm: 1.25,
+                                    md: 1.5,
+                                },
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontFamily:
+                                        '"Montserrat", sans-serif',
+
+                                    fontSize: {
+                                        xs: 11,
+                                        sm: 12,
+                                        md: 13,
+                                    },
+
+                                    fontWeight: 500,
+
+                                    color:
+                                        "rgba(255,255,255,0.48)",
+                                }}
+                            >
+                                Об'єм
+                            </Typography>
+
+                            <Typography
+                                sx={{
+                                    fontFamily:
+                                        '"Montserrat", sans-serif',
+
+                                    fontSize: {
+                                        xs: 12,
+                                        sm: 13,
+                                        md: 14,
+                                    },
+
+                                    fontWeight: 700,
+
+                                    color:
+                                        "rgba(255,255,255,0.9)",
+                                }}
+                            >
+                                {drink.volume}
+                            </Typography>
+                        </Box>
+                    )}
+
+                    {/* ==================================
+                        DESCRIPTION
+                    ================================== */}
+
+                    {drink?.description && (
+                        <Typography
+                            sx={{
+                                fontFamily:
+                                    '"Montserrat", sans-serif',
+
+                                maxWidth: 700,
+
+                                fontSize: {
+                                    xs: 11,
+                                    sm: 12,
+                                    md: 13,
+                                    lg: 14,
+                                },
+
+                                lineHeight: {
+                                    xs: 1.4,
+                                    sm: 1.5,
+                                    md: 1.55,
+                                },
+
+                                fontWeight: 400,
+
+                                color:
+                                    "rgba(255,255,255,0.58)",
+
+                                display:
+                                    "-webkit-box",
+
+                                WebkitBoxOrient:
+                                    "vertical",
+
+                                WebkitLineClamp: {
+                                    xs: 2,
+                                    sm: 2,
+                                    md: 2,
+                                },
+
+                                overflow: "hidden",
+
+                                textOverflow:
+                                    "ellipsis",
+
+                                mb: {
+                                    xs: 1.25,
+                                    sm: 1.5,
+                                    md: 1.75,
+                                },
+                            }}
+                        >
+                            {drink.description}
+                        </Typography>
+                    )}
+
+                    {/* ==================================
+                        PRICE
+                    ================================== */}
+
+                    <Typography
+                        sx={{
+                            fontFamily:
+                                '"Montserrat", sans-serif',
+
+                            fontSize: {
+                                xs: 19,
+                                sm: 22,
+                                md: 25,
+                                lg: 28,
+                            },
+
+                            lineHeight: 1,
+
+                            fontWeight: 800,
+
+                            color: "#d4af37",
+
+                            letterSpacing: {
+                                xs: "0.2px",
+                                md: "0.4px",
+                            },
+
+                            textShadow:
+                                "0 2px 12px rgba(212,175,55,0.15)",
+                        }}
+                    >
+                        {drink?.price} ₴
                     </Typography>
                 </Box>
 
-                {drink?.description && (
-                    <Typography
+                {/* ==================================
+                    RIGHT — IMAGE
+                ================================== */}
+
+                <Box
+                    sx={{
+                        width: {
+                            xs: 120,
+                            sm: 165,
+                            md: 200,
+                            lg: 220,
+                        },
+
+                        flexShrink: 0,
+
+                        display: "flex",
+
+                        alignItems: "center",
+
+                        justifyContent:
+                            "center",
+
+                        p: {
+                            xs: 1.25,
+                            sm: 1.75,
+                            md: 2.25,
+                            lg: 2.5,
+                        },
+                    }}
+                >
+                    <Box
+                        onClick={
+                            handleOpenModal
+                        }
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Відкрити ${drink?.name}`}
+                        onKeyDown={(event) => {
+                            if (
+                                event.key ===
+                                    "Enter" ||
+                                event.key ===
+                                    " "
+                            ) {
+                                event.preventDefault();
+
+                                handleOpenModal();
+                            }
+                        }}
                         sx={{
-                            mt: 2,
-                            lineHeight: 1.7,
-                            opacity: 0.9,
+                            width: "100%",
+
+                            height: {
+                                xs: 155,
+                                sm: 180,
+                                md: 205,
+                                lg: 220,
+                            },
+
+                            borderRadius: {
+                                xs: 2.5,
+                                sm: 3,
+                            },
+
+                            overflow: "hidden",
+
+                            cursor: "pointer",
+
+                            background:
+                                "#0d0d0d",
+
+                            border:
+                                "1px solid rgba(255,255,255,0.1)",
+
+                            transition:
+                                "transform .3s ease, border-color .3s ease, box-shadow .3s ease",
+
+                            "&:hover": {
+                                transform:
+                                    "scale(1.03)",
+
+                                borderColor:
+                                    "rgba(212,175,55,0.65)",
+
+                                boxShadow:
+                                    "0 10px 30px rgba(0,0,0,0.45)",
+                            },
+
+                            "&:focus-visible": {
+                                outline:
+                                    "2px solid #d4af37",
+
+                                outlineOffset: 2,
+                            },
                         }}
                     >
-                        {drink.description}
-                    </Typography>
-                )}
-            </Box>
-        </Card>
+                        <Box
+                            component="img"
+                            src={primaryImage}
+                            alt={
+                                drink?.name ||
+                                "Напій"
+                            }
+                            sx={{
+                                width: "100%",
+
+                                height: "100%",
+
+                                objectFit: "cover",
+
+                                display: "block",
+                            }}
+                        />
+                    </Box>
+                </Box>
+            </MuiCard>
+
+            {/* ==================================
+                MODAL
+            ================================== */}
+
+            <DrinkModal
+                drink={drink}
+                open={isModalOpen}
+                onClose={handleCloseModal}
+            />
+        </>
     );
 }

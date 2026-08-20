@@ -1,22 +1,13 @@
-import { useState } from "react";
-
-import drinks from "../../data/data.json";
+import { useRef } from "react";
 
 import {
     AppBar,
-    Toolbar,
-    Button,
     Box,
-    Drawer,
-    IconButton,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-    useMediaQuery,
+    Button,
+    Toolbar,
 } from "@mui/material";
 
-import MenuIcon from "@mui/icons-material/Menu";
+import drinks from "../../data/data.json";
 
 import {
     categoryLabels,
@@ -25,10 +16,10 @@ import {
 
 import { useCategoryStore } from "../../store/useCategoryStore";
 
-export default function Header() {
-    const isMobile = useMediaQuery("(max-width:768px)");
-
-    const [open, setOpen] = useState(false);
+export default function Header({
+    onCategoryChange,
+}) {
+    const menuRef = useRef(null);
 
     const activeCategory = useCategoryStore(
         (state) => state.activeCategory
@@ -37,6 +28,10 @@ export default function Header() {
     const setActiveCategory = useCategoryStore(
         (state) => state.setActiveCategory
     );
+
+    // ==========================================
+    // КАТЕГОРІЇ, ЯКІ Є В DATA
+    // ==========================================
 
     const existingTypes = new Set(
         drinks.map((drink) => drink.type)
@@ -48,211 +43,303 @@ export default function Header() {
             existingTypes.has(category)
     );
 
+    // ==========================================
+    // ВИБІР КАТЕГОРІЇ
+    // ==========================================
+
+    const handleCategoryClick = (category) => {
+        // Змінюємо активну категорію
+        setActiveCategory(category);
+
+        // Просимо MenuSection
+        // прокрутити сторінку до Header
+        requestAnimationFrame(() => {
+            onCategoryChange?.();
+        });
+
+        // ======================================
+        // ПРОКРУТКА КАТЕГОРІЇ
+        // НА МОБІЛЬНОМУ
+        // ======================================
+
+        const container = menuRef.current;
+
+        if (!container) {
+            return;
+        }
+
+        const button =
+            container.querySelector(
+                `[data-category="${category}"]`
+            );
+
+        if (!button) {
+            return;
+        }
+
+        const containerRect =
+            container.getBoundingClientRect();
+
+        const buttonRect =
+            button.getBoundingClientRect();
+
+        const offset =
+            buttonRect.left -
+            containerRect.left -
+            containerRect.width / 2 +
+            buttonRect.width / 2;
+
+        container.scrollTo({
+            left:
+                container.scrollLeft + offset,
+            behavior: "smooth",
+        });
+    };
+
     return (
         <AppBar
             position="sticky"
             elevation={0}
             sx={{
-                background: "rgba(15,15,15,0.85)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                boxShadow: "none",
+                top: 0,
+
+                width: "100%",
+
+                zIndex: 1100,
+
+                background:
+                    "rgba(15, 15, 15, 0.94)",
+
+                backdropFilter:
+                    "blur(18px)",
+
+                WebkitBackdropFilter:
+                    "blur(18px)",
+
                 borderBottom:
-                    "1px solid rgba(255,255,255,0.08)",
+                    "1px solid rgba(255, 255, 255, 0.08)",
+
+                boxShadow:
+                    "0 8px 30px rgba(0, 0, 0, 0.25)",
             }}
         >
             <Toolbar
+                disableGutters
                 sx={{
-                    minHeight: "80px",
+                    width: "100%",
+
+                    minHeight: {
+                        xs: 64,
+                        md: 72,
+                    },
+
+                    px: {
+                        xs: 0,
+                        sm: 1,
+                        md: 2,
+                    },
+
+                    display: "flex",
+                    alignItems: "center",
                 }}
             >
-                {isMobile ? (
-                    <>
-                        <Box
-                            sx={{
-                                width: "100%",
-                                display: "flex",
-                                justifyContent: "flex-end",
-                            }}
-                        >
-                            <IconButton
+                {/* ==================================
+                    КАТЕГОРІЇ
+                ================================== */}
+
+                <Box
+                    ref={menuRef}
+                    sx={{
+                        width: "100%",
+
+                        maxWidth: "1400px",
+
+                        mx: "auto",
+
+                        display: "flex",
+
+                        alignItems: "center",
+
+                        gap: {
+                            xs: 1,
+                            sm: 1.2,
+                            md: 1.5,
+                        },
+
+                        /*
+                         * Мобілка:
+                         * горизонтальний свайп.
+                         *
+                         * Десктоп:
+                         * всі категорії видно.
+                         */
+                        overflowX: {
+                            xs: "auto",
+                            md: "hidden",
+                        },
+
+                        overflowY: "hidden",
+
+                        justifyContent: {
+                            xs: "flex-start",
+                            md: "center",
+                        },
+
+                        flexWrap: "nowrap",
+
+                        scrollbarWidth: "none",
+
+                        "&::-webkit-scrollbar": {
+                            display: "none",
+                        },
+
+                        /*
+                         * Горизонтальний
+                         * touch-scroll
+                         */
+                        touchAction: "pan-x",
+
+                        /*
+                         * Забороняємо
+                         * виділення тексту
+                         */
+                        userSelect: "none",
+
+                        WebkitUserSelect:
+                            "none",
+
+                        px: {
+                            xs: 1.5,
+                            sm: 2,
+                            md: 2,
+                        },
+
+                        py: {
+                            xs: 1,
+                            md: 1.2,
+                        },
+                    }}
+                >
+                    {categories.map((category) => {
+                        const isActive =
+                            activeCategory ===
+                            category;
+
+                        return (
+                            <Button
+                                key={category}
+                                data-category={
+                                    category
+                                }
                                 onClick={() =>
-                                    setOpen(true)
+                                    handleCategoryClick(
+                                        category
+                                    )
                                 }
                                 sx={{
-                                    color: "#fff",
-                                }}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Box>
+                                    flexShrink: 0,
 
-                        <Drawer
-                            anchor="right"
-                            open={open}
-                            onClose={() =>
-                                setOpen(false)
-                            }
-                            sx={{
-                                "& .MuiDrawer-paper": {
-                                    width: "75vw",
-                                    maxWidth: "320px",
+                                    minWidth:
+                                        "auto",
+
+                                    whiteSpace:
+                                        "nowrap",
+
+                                    minHeight: {
+                                        xs: 40,
+                                        sm: 42,
+                                        md: 44,
+                                    },
+
+                                    px: {
+                                        xs: 2,
+                                        sm: 2.4,
+                                        md: 2.8,
+                                    },
+
+                                    py: {
+                                        xs: 0.8,
+                                        md: 1,
+                                    },
+
+                                    borderRadius:
+                                        "28px",
+
+                                    color:
+                                        isActive
+                                            ? "#d4af37"
+                                            : "rgba(255,255,255,0.82)",
+
                                     background:
-                                        "rgba(15,15,15,0.75)",
-                                    backdropFilter:
-                                        "blur(20px)",
-                                    color: "#fff",
-                                    borderLeft:
-                                        "1px solid rgba(255,255,255,0.08)",
-                                    boxShadow: "none",
-                                },
+                                        isActive
+                                            ? "rgba(212,175,55,0.16)"
+                                            : "rgba(255,255,255,0.06)",
 
-                                "& .MuiBackdrop-root": {
-                                    background:
-                                        "rgba(0,0,0,0.35)",
-                                    backdropFilter:
-                                        "blur(4px)",
-                                },
-                            }}
-                        >
-                            <List sx={{ pt: 2 }}>
-                                {categories.map(
-                                    (category) => (
-                                        <ListItem
-                                            key={
-                                                category
-                                            }
-                                            disablePadding
-                                        >
-                                            <ListItemButton
-                                                onClick={() => {
-                                                    setActiveCategory(
-                                                        category
-                                                    );
-                                                    setOpen(
-                                                        false
-                                                    );
-                                                }}
-                                                sx={{
-                                                    mx: 1,
-                                                    my: 0.5,
-                                                    borderRadius: 2,
-                                                    color:
-                                                        activeCategory ===
-                                                        category
-                                                            ? "#d4af37"
-                                                            : "#fff",
-                                                    background:
-                                                        activeCategory ===
-                                                        category
-                                                            ? "rgba(212,175,55,0.15)"
-                                                            : "transparent",
+                                    border:
+                                        isActive
+                                            ? "1px solid rgba(212,175,55,0.55)"
+                                            : "1px solid rgba(255,255,255,0.06)",
 
-                                                    "&:hover":
-                                                        {
-                                                            background:
-                                                                "rgba(255,255,255,0.08)",
-                                                        },
-                                                }}
-                                            >
-                                                <ListItemText
-                                                    primary={
-                                                        categoryLabels[
-                                                            category
-                                                        ]
-                                                    }
-                                                />
-                                            </ListItemButton>
-                                        </ListItem>
-                                    )
-                                )}
-                            </List>
-                        </Drawer>
-                    </>
-                ) : (
-                    <Box
-                        sx={{
-                            width: "100%",
-                            display: "flex",
-                            justifyContent:
-                                "center",
-                            alignItems:
-                                "center",
-                            gap: 2,
-                            flexWrap: "wrap",
-                        }}
-                    >
-                        {categories.map(
-                            (category) => (
-                                <Button
-                                    key={category}
-                                    onClick={() =>
-                                        setActiveCategory(
-                                            category
-                                        )
-                                    }
-                                    sx={{
+                                    fontSize: {
+                                        xs: 14,
+                                        sm: 14,
+                                        md: 15,
+                                    },
+
+                                    fontWeight:
+                                        isActive
+                                            ? 700
+                                            : 600,
+
+                                    lineHeight: 1,
+
+                                    textTransform:
+                                        "none",
+
+                                    letterSpacing:
+                                        "0.2px",
+
+                                    transition:
+                                        "background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease",
+
+                                    userSelect:
+                                        "none",
+
+                                    WebkitUserSelect:
+                                        "none",
+
+                                    "&:hover": {
                                         background:
-                                            activeCategory ===
-                                            category
-                                                ? "rgba(212,175,55,0.2)"
-                                                : "rgba(255,255,255,0.08)",
-
-                                        backdropFilter:
-                                            "blur(10px)",
-
-                                        borderRadius:
-                                            "30px",
-
-                                        px: 3,
-                                        py: 1,
-
-                                        textTransform:
-                                            "none",
-
-                                        fontWeight: 600,
+                                            isActive
+                                                ? "rgba(212,175,55,0.24)"
+                                                : "rgba(255,255,255,0.11)",
 
                                         color:
-                                            activeCategory ===
-                                            category
+                                            isActive
                                                 ? "#d4af37"
                                                 : "#fff",
 
-                                        border:
-                                            activeCategory ===
-                                            category
-                                                ? "1px solid rgba(212,175,55,0.5)"
-                                                : "1px solid transparent",
+                                        borderColor:
+                                            isActive
+                                                ? "rgba(212,175,55,0.7)"
+                                                : "rgba(255,255,255,0.12)",
+                                    },
 
-                                        boxShadow:
-                                            "none",
-
-                                        transition:
-                                            "0.2s ease",
-
-                                        "&:hover":
-                                            {
-                                                background:
-                                                    activeCategory ===
-                                                    category
-                                                        ? "rgba(212,175,55,0.3)"
-                                                        : "rgba(255,255,255,0.18)",
-
-                                                transform:
-                                                    "translateY(-2px)",
-                                            },
-                                    }}
-                                >
-                                    {
-                                        categoryLabels[
-                                            category
-                                        ]
-                                    }
-                                </Button>
-                            )
-                        )}
-                    </Box>
-                )}
+                                    "&:active": {
+                                        transform:
+                                            "scale(0.97)",
+                                    },
+                                }}
+                            >
+                                {
+                                    categoryLabels[
+                                        category
+                                    ]
+                                }
+                            </Button>
+                        );
+                    })}
+                </Box>
             </Toolbar>
         </AppBar>
     );

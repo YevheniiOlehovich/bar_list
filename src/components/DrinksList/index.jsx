@@ -1,4 +1,9 @@
-import { Container, Grid, Typography, Box } from "@mui/material";
+import {
+    Container,
+    Grid,
+    Typography,
+    Box,
+} from "@mui/material";
 
 import drinks from "../../data/data.json";
 import Card from "../Card";
@@ -15,6 +20,10 @@ export default function DrinksList() {
         (state) => state.activeCategory
     );
 
+    // ==========================================
+    // РЕНДЕР КАРТОК
+    // ==========================================
+
     const renderCards = (items) => (
         <Grid
             container
@@ -24,11 +33,17 @@ export default function DrinksList() {
             {items.map((drink) => (
                 <Grid
                     key={drink.id}
-                    size={{
-                        xs: 12,
-                        sm: 6,
-                        md: 6,
-                        lg: 6,
+                    size={12}
+                    sx={{
+                        width: "100%",
+
+                        /*
+                         * До 1024px:
+                         * одна картка на всю ширину.
+                         */
+                        "@media (min-width: 1024px)": {
+                            width: "calc(50% - 12px)",
+                        },
                     }}
                 >
                     <Card drink={drink} />
@@ -37,56 +52,125 @@ export default function DrinksList() {
         </Grid>
     );
 
+    // ==========================================
+    // ОКРЕМА КАТЕГОРІЯ
+    // ==========================================
+
     if (activeCategory !== "all") {
         const filteredDrinks = drinks.filter(
-            (drink) => drink.type === activeCategory
+            (drink) =>
+                drink.type === activeCategory
         );
 
         return (
             <Container
                 maxWidth="xl"
-                sx={{ py: 4 }}
+                sx={{
+                    py: 4,
+                }}
             >
                 {renderCards(filteredDrinks)}
             </Container>
         );
     }
 
+    // ==========================================
+    // ВСІ КАТЕГОРІЇ
+    // ==========================================
+
     return (
         <Container
             maxWidth="xl"
-            sx={{ py: 4 }}
+            sx={{
+                py: 4,
+            }}
         >
             {categoryOrder
-                .filter((category) => category !== "all")
-                .map((category) => {
-                    const categoryDrinks = drinks.filter(
-                        (drink) => drink.type === category
-                    );
+                .filter(
+                    (category) =>
+                        category !== "all"
+                )
+                .map((category, index, array) => {
+                    const categoryDrinks =
+                        drinks.filter(
+                            (drink) =>
+                                drink.type ===
+                                category
+                        );
 
-                    if (!categoryDrinks.length) {
+                    if (
+                        !categoryDrinks.length
+                    ) {
                         return null;
                     }
+
+                    /*
+                     * Перевіряємо, чи це остання
+                     * категорія з товарами.
+                     *
+                     * Щоб після останньої категорії
+                     * не залишати зайвий margin.
+                     */
+                    const categoriesWithDrinks =
+                        array.filter(
+                            (item) =>
+                                drinks.some(
+                                    (drink) =>
+                                        drink.type ===
+                                        item
+                                )
+                        );
+
+                    const isLastCategory =
+                        category ===
+                        categoriesWithDrinks[
+                            categoriesWithDrinks.length -
+                                1
+                        ];
 
                     return (
                         <Box
                             key={category}
-                            sx={{ mb: 8 }}
+                            sx={{
+                                mb: isLastCategory
+                                    ? 0
+                                    : 8,
+                            }}
                         >
+                            {/* ==========================
+                                НАЗВА КАТЕГОРІЇ
+                            ========================== */}
+
                             <Typography
                                 variant="h4"
                                 sx={{
                                     mb: 3,
+
                                     fontWeight: 700,
+
                                     color: "#d4af37",
-                                    textTransform: "uppercase",
-                                    letterSpacing: "1px",
+
+                                    textTransform:
+                                        "uppercase",
+
+                                    letterSpacing:
+                                        "1px",
                                 }}
                             >
-                                {categoryLabels[category]}
+                                {
+                                    categoryLabels[
+                                        category
+                                    ]
+                                }
                             </Typography>
 
-                            {renderCards(categoryDrinks)}
+                            {/* ==========================
+                                КАРТКИ
+                            ========================== */}
+
+                            {renderCards(
+                                categoryDrinks
+                            )}
                         </Box>
                     );
                 })}
