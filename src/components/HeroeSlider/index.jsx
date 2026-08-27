@@ -3,8 +3,10 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 import SliderPic1 from "../../assets/slider/slide1.webp";
 import SliderPic2 from "../../assets/slider/slide2.webp";
+import SliderPic3 from "../../assets/slider/slide3.webp";
 import SliderPic4 from "../../assets/slider/slide4.webp";
 import SliderPic5 from "../../assets/slider/slide5.webp";
+import SliderPic6 from "../../assets/slider/slide6.webp";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,8 +14,10 @@ import "swiper/css/pagination";
 const images = [
   SliderPic1,
   SliderPic2,
+  SliderPic3,
   SliderPic4,
   SliderPic5,
+  SliderPic6,
 ];
 
 export default function HeroeSlider() {
